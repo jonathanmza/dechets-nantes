@@ -31,7 +31,7 @@ class SearchComponent extends LitElement {
 						type="text"
 						id="search"
 						name="search"
-						placeholder="Chercher où jeter ses déchets..." />
+						placeholder="Cherchez un déchet à jeter..." />
 				</div>
 				<div class="flex-column flex-gap-10px">
 					${when(this.loading, () => html`<span class="self-center color-gray"> Je cherche... 🔍 </span>`)}
