@@ -25,7 +25,7 @@ class SearchComponent extends LitElement {
 	render() {
 		return html`
 			<div class="flex-column flex-gap-50px">
-				<div ${fadeInAnimation} class="flex-column flex-gap-50px text-center">
+				<div ${fadeInAnimation} class="flex-column sticky header-background w-100vw items-center h-25vh">
 					<input
 						class="font-size text-center p-15px h-4vh w-80vw no-border bd-radius color-gray outline"
 						type="text"
@@ -33,11 +33,11 @@ class SearchComponent extends LitElement {
 						name="search"
 						placeholder="Cherchez un déchet à jeter..." />
 				</div>
-				<div class="flex-column flex-gap-10px">
-					${when(this.loading, () => html`<span class="self-center color-gray"> Je cherche... 🔍 </span>`)}
+				<div class="flex-column items-center flex-gap-10px">
+					${when(this.loading, () => html`<span class="color-gray"> Je cherche... 🔍 </span>`)}
 					${when(
 						this.searchInputValue && !this.loading && !this.searchResults.length,
-						() => html`<span class="self-center color-gray"> Aïe ! Je n'ai rien trouvé 😬 </span>`
+						() => html`<span class="color-gray"> Aïe ! Je n'ai rien trouvé 😬 </span>`
 					)}
 					${this.searchResults.map(
 						(result) => html` <household-garbage .garbage=${result} ${inOutAnimation}}></household-garbage>`

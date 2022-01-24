@@ -13,16 +13,16 @@ export const styles = css`
 	.font {
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 			'Helvetica Neue', sans-serif;
-		color: gray;
+		color: white;
 		font-size: 0.975rem;
 	}
 
 	.card {
 		border-radius: 15px;
-		box-shadow: 1px 1px 6px -4px rgba(0, 0, 0, 0.62);
-		background-color: white;
+		box-shadow:  rgb(0 0 0 / 62%) -2px 2px 9px -3px;
+		background-color: rgb(241 175 154 / 17%);
 		padding: 12px;
-		max-width: 80vw;
+		width: 80vw;
 	}
 
 	.h4-title {
