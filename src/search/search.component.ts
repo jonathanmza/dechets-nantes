@@ -1,9 +1,8 @@
-import { animate, fadeIn, flyBelow } from '@lit-labs/motion';
 import { LitElement, html } from 'lit';
 import { customElement, state } from 'lit/decorators';
 import { when } from 'lit/directives/when';
 import { fromEvent } from 'rxjs';
-import { debounceTime, switchMap, tap } from 'rxjs/operators';
+import { debounceTime, distinct, switchMap, tap } from 'rxjs/operators';
 import { GarbageAdvice } from '../model/garbage-advice.model';
 import { styles } from '../search/search.style';
 import { fadeInAnimation, inOutAnimation } from './search.animation';
@@ -25,15 +24,15 @@ class SearchComponent extends LitElement {
 	render() {
 		return html`
 			<div class="flex-column flex-gap-50px">
-				<div ${fadeInAnimation} class="flex-column sticky header-background w-100vw items-center h-25vh">
+				<div ${fadeInAnimation} class="flex-column sticky w-100vw items-center h-25vh">
 					<input
-						class="font-size text-center p-15px h-4vh w-80vw no-border bd-radius color-gray outline"
+						class="font-size text-center p-15px h-10vh w-80vw no-border bd-radius input-bg-color color-gray outline"
 						type="text"
 						id="search"
 						name="search"
 						placeholder="Cherchez un déchet à jeter..." />
 				</div>
-				<div class="flex-column items-center flex-gap-10px">
+				<div class="flex-column items-center flex-gap-25px">
 					${when(this.loading, () => html`<span class="color-gray"> Je cherche... 🔍 </span>`)}
 					${when(
 						this.searchInputValue && !this.loading && !this.searchResults.length,
@@ -50,6 +49,7 @@ class SearchComponent extends LitElement {
 	private handleInputEvent() {
 		fromEvent(this.shadowRoot?.getElementById('search'), 'keyup')
 			.pipe(
+				distinct(),
 				tap(() => (this.loading = true)),
 				debounceTime(850),
 				switchMap(() => this.fetchData()),

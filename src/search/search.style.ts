@@ -14,8 +14,8 @@ export const styles = css`
 		gap: 50px;
 	}
 
-	.flex-gap-10px {
-		gap: 10px;
+	.flex-gap-25px {
+		gap: 25px;
 	}
 
 	.no-border {
@@ -34,8 +34,8 @@ export const styles = css`
 		padding: 15px;
 	}
 
-	.h-4vh {
-		height: 4vh;
+	.h-10vh {
+		height: 10vh;
 	}
 
 	.sticky {
@@ -49,12 +49,6 @@ export const styles = css`
 
 	.h-25vh {
 		height: 25vh;
-	}
-
-	.header-background {
-		background: linear-gradient(5deg, #a770ef42, #fdb99b);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
 	}
 
 	.items-center {
@@ -76,7 +70,12 @@ export const styles = css`
 
 	.bd-radius {
 		border-radius: 15px;
-		background-color: #00000014;
+	}
+
+	.input-bg-color {
+		background-color: var(--bg-input-color);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
 	}
 
 	.outline:focus {

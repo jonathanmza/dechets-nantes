@@ -20,7 +20,7 @@ export const styles = css`
 	.card {
 		border-radius: 15px;
 		box-shadow:  rgb(0 0 0 / 62%) -2px 2px 9px -3px;
-		background-color: rgb(241 175 154 / 17%);
+		background: var(--bg-card-color);
 		padding: 12px;
 		width: 80vw;
 	}
